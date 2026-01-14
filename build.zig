@@ -32,27 +32,32 @@ pub fn build(b: *std.Build) void {
 
     const backends = .{
         // Platform backends
-        .{ "android", ".cpp" },
-        .{ "glfw", ".cpp" },
-        .{ "osx", ".mm" },
-        .{ "sdl2", ".cpp" },
-        .{ "sdl3", ".cpp" },
-        .{ "win32", ".cpp" },
-        .{ "glut", ".cpp" },
+        .{ "android", ".cpp", "Android native" },
+        .{ "glfw", ".cpp", "GLFW" },
+        .{ "osx", ".mm", "macOS native" },
+        .{ "sdl2", ".cpp", "SDL2" },
+        .{ "sdl3", ".cpp", "SDL3" },
+        .{ "win32", ".cpp", "Win32 native" },
+        .{ "glut", ".cpp", "GLUT/FreeGLUT" },
 
         // Render backends
-        .{ "dx9", ".cpp" },
-        .{ "dx10", ".cpp" },
-        .{ "dx11", ".cpp" },
-        .{ "dx12", ".cpp" },
-        .{ "metal", ".mm" },
-        .{ "opengl2", ".cpp" },
-        .{ "opengl3", ".cpp" },
-        .{ "sdlgpu3", ".cpp" },
-        .{ "sdlrenderer2", ".cpp" },
-        .{ "sdlrenderer3", ".cpp" },
-        .{ "vulkan", ".cpp" },
-        .{ "wgpu", ".cpp" },
+        .{ "dx9", ".cpp", "DirectX9" },
+        .{ "dx10", ".cpp", "DirectX10" },
+        .{ "dx11", ".cpp", "DirectX11" },
+        .{ "dx12", ".cpp", "DirectX12" },
+        .{ "metal", ".mm", "Metal" },
+        .{ "opengl2", ".cpp", "OpenGL 2 (legacy)" },
+        .{ "opengl3", ".cpp", "OpenGL (3/4, ES 2/3, WebGL)" },
+        .{ "sdlgpu3", ".cpp", "SDL_GPU" },
+        .{ "sdlrenderer2", ".cpp", "SDL2 SDL_Renderer" },
+        .{ "sdlrenderer3", ".cpp", "SDL3 SDL_Renderer" },
+        .{ "vulkan", ".cpp", "Vulkan" },
+        .{ "wgpu", ".cpp", "WebGPU" },
+
+        // Framework backends.
+        .{ "allegro5", ".cpp", "Allegro5" },
+
+        .{ "null", ".cpp", "null (blind)" },
     };
 
     inline for (backends) |backend| {
