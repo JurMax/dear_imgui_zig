@@ -1,0 +1,18 @@
+.{
+    .name = .dear_imgui_zig,
+    .version = "1.0.0",
+    .dependencies = .{
+        .imgui = .{
+            .url = "git+https://github.com/ocornut/imgui#0d08927dae557cd537416661d932b19dc6f040db",
+            .hash = "N-V-__8AACsIdQA89WZGA4MxBVJIJ3rfJM0tXFdG7sR-ZOMn",
+        },
+    },
+    .minimum_zig_version = "0.15.2",
+    .paths = .{
+        "LICENSE",
+        "README.md",
+        "build.zig",
+        "build.zig.zon",
+    },
+    .fingerprint = 0x9da3a9ffa6db83e6,
+}
