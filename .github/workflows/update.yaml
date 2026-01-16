@@ -22,7 +22,7 @@ jobs:
         uses: mlugg/setup-zig@v2
 
       - name: Fetch latest commit
-        run: zig pull --save git+https://github.com/ocornut/imgui
+        run: zig fetch --save=imgui git+https://github.com/ocornut/imgui
 
       - name: Run `zig build`
         run: zig build
