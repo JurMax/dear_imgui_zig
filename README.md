@@ -21,7 +21,7 @@ const imgui = b.dependency("dear_imgui_zig", .{
     .optimize = optimize,
     .sdl3 = true, // Mark any backend you want to use like this
     .vulkan = true,
-    .include_paths = &.{
+    .include_paths = &[_]std.Build.LazyPath{
         // Add the include path manually, or leave blank to use system headers.
         // sdl3_dependency.path("include"),
     }
