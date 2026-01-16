@@ -1,7 +1,7 @@
 
 # Dear ImGui Zig
 
-This is a port of [Dear ImGui](https://github.com/ocornut/imgui) to the [Zig](https://ziglang.org/) build system. This package only builds ImGui and the specified backend code, it does not import any of the backends themselves, nor does it provide custom zig bindings.
+This is a port of [Dear ImGui](https://github.com/ocornut/imgui) to the [Zig](https://ziglang.org/) build system. This package only builds ImGui and the specified backend code, it does not import any of the backends themselves, nor does it provide custom zig bindings. This means that you'll have to provide both the binaries and the include directories for the backends you want to use yourself.
 
 ## How to use it
 
@@ -19,8 +19,12 @@ Next, add it to your `build.zig`:
 const imgui = b.dependency("dear_imgui_zig", .{
     .target = target,
     .optimize = optimize,
-    .sdl3 = true,   // Mark any backend you want to use like this
+    .sdl3 = true, // Mark any backend you want to use like this
     .vulkan = true,
+    .include_paths = &.{
+        // Add the include path manually, or leave blank to use system headers.
+        // sdl3_dependency.path("include"),
+    }
 });
 exe.linkLibrary(imgui.artifact("imgui"));
 ```

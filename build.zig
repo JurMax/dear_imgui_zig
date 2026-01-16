@@ -3,6 +3,11 @@ const std = @import("std");
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
+    const include_paths = b.option(
+        []const std.Build.LazyPath,
+        "include_paths",
+        "Include directories used to build the backends",
+    ) orelse &.{};
 
     const upstream = b.dependency("imgui", .{});
     const lib = b.addLibrary(.{
@@ -29,6 +34,10 @@ pub fn build(b: *std.Build) void {
             "imgui_widgets.cpp",
         },
     });
+
+    for (include_paths) |include_path| {
+        lib.root_module.addIncludePath(include_path);
+    }
 
     const backends = .{
         // Platform backends
@@ -61,8 +70,8 @@ pub fn build(b: *std.Build) void {
     };
 
     inline for (backends) |backend| {
-        const include = b.option(bool, backend[0], "Compile the " ++ backend[0] ++ " backend") orelse false;
-        if (include) {
+        const do_compile_backend = b.option(bool, backend[0], "Compile the " ++ backend[0] ++ " backend") orelse false;
+        if (do_compile_backend) {
             lib.root_module.addCSourceFile(.{
                 .file = upstream.path("backends/imgui_impl_" ++ backend[0] ++ backend[1]),
             });
