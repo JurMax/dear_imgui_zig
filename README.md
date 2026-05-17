@@ -26,7 +26,7 @@ const imgui = b.dependency("dear_imgui_zig", .{
         // sdl3_dependency.path("include"),
     }
 });
-exe.linkLibrary(imgui.artifact("imgui"));
+exe.root_module.linkLibrary(imgui.artifact("imgui"));
 ```
 
 This will add the Dear ImGui library and headers to `exe`.

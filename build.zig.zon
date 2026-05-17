@@ -7,7 +7,7 @@
             .hash = "N-V-__8AAGQxdwCeIXeaZkMJmpE03smZ-yYeCRPn2dvqsRYK",
         },
     },
-    .minimum_zig_version = "0.15.2",
+    .minimum_zig_version = "0.16.0",
     .paths = .{
         "LICENSE",
         "README.md",
