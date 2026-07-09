@@ -3,8 +3,8 @@
     .version = "1.92.5",
     .dependencies = .{
         .imgui = .{
-            .url = "git+https://github.com/ocornut/imgui#f903a7e8e23f2d80fbb5198e9e049632a28d798f",
-            .hash = "N-V-__8AAAPceACGS8Mh-EWAvj7P6SoZNo-B1ECSdDTYCbGv",
+            .url = "git+https://github.com/ocornut/imgui#da137cbbb066e57f4b44f3f331c36e1e30e1cbe2",
+            .hash = "N-V-__8AAAWqeQDTGvkMf-Pg0Iaupzi10sxbZTkUYAz2Q_6V",
         },
     },
     .minimum_zig_version = "0.16.0",
