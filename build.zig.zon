@@ -1,6 +1,6 @@
 .{
     .name = .dear_imgui_zig,
-    .version = "1.92.5",
+    .version = "1.92.9",
     .dependencies = .{
         .imgui = .{
             .url = "git+https://github.com/ocornut/imgui#2859f6723c13de3a9661b8087fb7919fa3796813",
